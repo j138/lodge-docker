@@ -1,0 +1,16 @@
+### Rails ###
+public/assets/*
+# log
+# tmp
+
+## Environment normalisation:
+.bundle
+vendor/bundle
+
+.DS_Store
+Thumbs.db
+tags
+
+node_modules/
+.ruby-version
+
