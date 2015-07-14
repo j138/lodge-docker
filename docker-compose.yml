@@ -1,0 +1,33 @@
+mysql:
+  image: mysql:5.7.7
+  environment:
+    MYSQL_ROOT_PASSWORD: 'melody'
+  ports:
+    - '3306:3306'
+  volumes_from:
+    - datastore
+
+nginx:
+  build: containers/nginx
+  ports:
+    - '80:80'
+  volumes_from:
+    - datastore
+  links:
+    - rails
+
+datastore:
+  build: containers/datastore
+
+rails:
+  build: .
+  ports:
+    - '3000:3000'
+  environment:
+    RAILS_ENV: production
+    DATABASE_URL: mysql2://root:melody@mysql:3306
+    MYSQL_ROOT_PASSWORD: 'melody'
+  volumes_from:
+    - datastore
+  links:
+    - mysql
