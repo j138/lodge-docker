@@ -1,3 +1,14 @@
+=====
+## Docker対応
+
+docker対応してみました。設定ファイルを書き参考に記載後(.env等）、下記コマンドを実行してみてください。
+
+```
+docker-compose build
+docker-compose up
+```
+
+=====
 [![Gitter chat](https://badges.gitter.im/lodge/lodge.png)](https://gitter.im/lodge/lodge)
 [![Build Status](https://travis-ci.org/lodge/lodge.svg?branch=release)](https://travis-ci.org/lodge/lodge)
 [![Coverage Status](https://coveralls.io/repos/lodge/lodge/badge.png?branch=release)](https://coveralls.io/r/lodge/lodge?branch=release)
