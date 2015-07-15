@@ -1,8 +1,40 @@
 =====
 ## Docker対応
 
-docker対応してみました。設定ファイルを書き参考に記載後(.env等）、下記コマンドを実行してみてください。
+docker対応してみました。設定ファイルを下記参考に記載後(.env等）、ビルドしてみてください。
 
+## 設定ファイル
+- .env
+- config/database.yml
+
+config/database.ymlに下記貼り付けてください。
+urlはdocker-compose.ymlから読み込んでます。
+
+```yml:config/database.yml
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  port: 3306
+
+development: &development
+  <<: *default
+  database: lodge_development
+  url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  database: lodge_test
+
+production: &production
+  <<: *default
+  database: lodge_production
+  url: <%= ENV['DATABASE_URL'] %>
+```
+
+
+ビルド方法
 ```
 docker-compose build
 docker-compose up
