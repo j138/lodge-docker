@@ -6,6 +6,8 @@ docker対応してみました。設定ファイルを書き参考に記載後(.
 ```
 docker-compose build
 docker-compose up
+docker-compose run rails rake db:create
+docker-compose run rails rake db:migrate
 ```
 
 =====
