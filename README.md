@@ -38,6 +38,8 @@ production: &production
 ```
 docker-compose build
 docker-compose up
+docker-compose run rails rake db:create
+docker-compose run rails rake db:migrate
 ```
 
 =====

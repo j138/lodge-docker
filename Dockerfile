@@ -13,6 +13,8 @@ RUN \
   bundle config --local without test development doc && \
   bundle install -j4
 
+RUN rake acts_as_taggable_on_engine:install:migrations
+
 ADD . $APP_ROOT/
 
 EXPOSE 3000
