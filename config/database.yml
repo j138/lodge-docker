@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  port: 3306
+
+development: &development
+  <<: *default
+  database: lodge_development
+  url: <%= ENV['DATABASE_URL'] %>
+
+test:
+  <<: *default
+  database: lodge_test
+
+production: &production
+  <<: *default
+  database: lodge_production
+  url: <%= ENV['DATABASE_URL'] %>
+
