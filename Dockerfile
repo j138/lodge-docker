@@ -16,6 +16,7 @@ RUN \
 
 ADD . $APP_ROOT/
 
+RUN rake emoji
 RUN rake acts_as_taggable_on_engine:install:migrations
 
 EXPOSE 3000
