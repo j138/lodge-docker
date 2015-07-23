@@ -27,6 +27,11 @@ rails:
     RAILS_ENV: production
     DATABASE_URL: mysql2://root:melody@mysql:3306
     MYSQL_ROOT_PASSWORD: 'melody'
+    SECRET_KEY_BASE: __some_random_string__
+    DEVISE_SECRET_KEY: __some_random_string__
+    GOOGLE_CLIENT_ID: 
+    GOOGLE_CLIENT_SECRET: 
+    LODGE_DOMAIN: localhost:3000
     DELIVERY_METHOD: smtp
     MAIL_SENDER: example@example.com
     SMTP_ADDRESS: smtp.google.com
@@ -36,6 +41,8 @@ rails:
     SMTP_AUTH_METHOD: plain
     SMTP_ENABLE_STARTTLS_AUTO: true
     SMTP_OPENSSL_VERIFY_MODE: none
+    LODGE_THEME: lodge
+    SYNTAX_HIGHLIGHT_THEME: pastie
   volumes_from:
     - datastore
   links:

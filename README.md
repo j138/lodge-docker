@@ -1,46 +1,28 @@
 =====
 ## Docker対応
 
-docker対応してみました。設定ファイルを下記参考に記載後(.env等）、ビルドしてみてください。
-メールの設定は、docker-compose.ymlに寄せました。
+docker対応してみました。設定ファイルを.envからdocker-compose.ymlに寄せてるので、
+.env.sample、README.mdを参考にdocker-compose.ymlを記載し、ビルドしてください。
+基本的に、ドメイン設定、メールの設定のみでOKです。
 
-## 設定ファイル
-- .env
-- config/database.yml
-- docker-compose.yml
-
-config/database.ymlに下記貼り付けてください。
-urlはdocker-compose.ymlから読み込んでます。
-
-```yml:config/database.yml
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  timeout: 5000
-  port: 3306
-
-development: &development
-  <<: *default
-  database: lodge_development
-  url: <%= ENV['DATABASE_URL'] %>
-
-test:
-  <<: *default
-  database: lodge_test
-
-production: &production
-  <<: *default
-  database: lodge_production
-  url: <%= ENV['DATABASE_URL'] %>
+```yml:docker-compose.yml
+    LODGE_DOMAIN: localhost:3000
+    DELIVERY_METHOD: smtp
+    MAIL_SENDER: example@example.com
+    SMTP_ADDRESS: smtp.google.com
+    SMTP_PORT: 587
+    SMTP_USERNAME: username
+    SMTP_PASSWORD: password
+    SMTP_AUTH_METHOD: plain
+    SMTP_ENABLE_STARTTLS_AUTO: true
 ```
 
 
-ビルド方法
+## ビルド方法
 
 ```
 docker-compose build
-docker-compose up
+docker-compose up -d
 docker-compose run rails rake db:create
 docker-compose run rails rake db:migrate
 ```
