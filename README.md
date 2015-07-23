@@ -2,10 +2,12 @@
 ## Docker対応
 
 docker対応してみました。設定ファイルを下記参考に記載後(.env等）、ビルドしてみてください。
+メールの設定は、docker-compose.ymlに寄せました。
 
 ## 設定ファイル
 - .env
 - config/database.yml
+- docker-compose.yml
 
 config/database.ymlに下記貼り付けてください。
 urlはdocker-compose.ymlから読み込んでます。

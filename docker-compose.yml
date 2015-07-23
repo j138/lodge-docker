@@ -27,6 +27,15 @@ rails:
     RAILS_ENV: production
     DATABASE_URL: mysql2://root:melody@mysql:3306
     MYSQL_ROOT_PASSWORD: 'melody'
+    DELIVERY_METHOD: smtp
+    MAIL_SENDER: example@example.com
+    SMTP_ADDRESS: smtp.google.com
+    SMTP_PORT: 587
+    SMTP_USERNAME: username
+    SMTP_PASSWORD: password
+    SMTP_AUTH_METHOD: plain
+    SMTP_ENABLE_STARTTLS_AUTO: true
+    SMTP_OPENSSL_VERIFY_MODE: none
   volumes_from:
     - datastore
   links:
