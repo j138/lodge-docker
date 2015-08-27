@@ -1,4 +1,4 @@
-FROM ruby:2.1.5
+FROM ruby:2.1.6
 ENV APP_ROOT /usr/src/app
 
 RUN apt-get update && apt-get install -y nodejs mysql-client cmake libicu-dev --no-install-recommends && rm -rf /var/lib/apt/lists/*
