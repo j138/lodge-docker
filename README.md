@@ -27,6 +27,12 @@ docker-compose run rails rake db:create
 docker-compose run rails rake db:migrate
 ```
 
+## 画像ディレクトリのバックアップコマンド
+
+```
+docker run --volumes-from lodgedocker_datastore_1 -v $(pwd):/backup ubuntu tar cvf /backup/$(date +%Y%m%d)_backupImage.tar /usr/src/app/public/uploads
+```
+
 =====
 [![Gitter chat](https://badges.gitter.im/lodge/lodge.png)](https://gitter.im/lodge/lodge)
 [![Build Status](https://travis-ci.org/lodge/lodge.svg?branch=release)](https://travis-ci.org/lodge/lodge)
