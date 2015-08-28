@@ -27,10 +27,18 @@ docker-compose run rails rake db:create
 docker-compose run rails rake db:migrate
 ```
 
-## 画像ディレクトリのバックアップコマンド
+## 画像ディレクトリのバックアップ
 
 ```
+# バックアップ
 docker run --volumes-from lodgedocker_datastore_1 -v $(pwd):/backup ubuntu tar cvf /backup/$(date +%Y%m%d)_backupImage.tar /usr/src/app/public/uploads
+
+# リストア
+docker run --volumes-from lodgedocker_datastore_1 -v $(pwd):/backup ubuntu tar xvf /backup/20150828_backup_image.tar -C /
+
+# 画像ディレクトリの確認
+docker run -it --volumes-from lodgedocker_datastore_1 -v $(pwd):/backup ubuntu /bin/bash
+cd /usr/src/app/public/uploads
 ```
 
 =====
