@@ -9,6 +9,7 @@ mysql:
 
 nginx:
   build: containers/nginx
+  stop_signal: SIGQUIT
   ports:
     - '80:80'
   volumes_from:
