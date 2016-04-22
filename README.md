@@ -23,8 +23,8 @@ docker対応してみました。設定ファイルを.envからdocker-compose.y
 ```
 docker-compose build
 docker-compose up -d
-docker-compose run rails rake db:create
-docker-compose run rails rake db:migrate
+docker-compose run rake db:create
+docker-compose run rake db:migrate
 ```
 
 ## 画像ディレクトリのバックアップ
